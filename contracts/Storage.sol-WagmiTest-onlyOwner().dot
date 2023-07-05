@@ -1,0 +1,16 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(owner == msg.sender,Only owner has access to this)
+
+IRs:
+TMP_15(bool) = owner == msg.sender
+TMP_16(None) = SOLIDITY_CALL require(bool,string)(TMP_15,Only owner has access to this)"];
+1->2;
+2[label="Node Type: _ 2
+"];
+}

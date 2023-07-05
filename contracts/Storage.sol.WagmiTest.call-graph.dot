@@ -1,0 +1,20 @@
+strict digraph {
+subgraph cluster_147_WagmiTest {
+label = "WagmiTest"
+"147_viewMessage" [label="viewMessage"]
+"147_receive" [label="receive"]
+"147_constructor" [label="constructor"]
+"147_setMessage" [label="setMessage"]
+"147_contractBalance" [label="contractBalance"]
+"147_sendContractBal" [label="sendContractBal"]
+"147_sendContractBal" -> "147_onlyOwner"
+"147_contractBalance" -> "147_onlyOwner"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"balance(address)" 
+"require(bool,string)" 
+"147_sendContractBal" -> "require(bool,string)"
+"147_sendContractBal" -> "balance(address)"
+"147_contractBalance" -> "balance(address)"
+}
+}

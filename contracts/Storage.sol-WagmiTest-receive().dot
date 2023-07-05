@@ -1,0 +1,22 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+contractDonators[msg.sender] += msg.value
+
+IRs:
+REF_0(uint256) -> contractDonators[msg.sender]
+REF_0(-> contractDonators) = REF_0 (c)+ msg.value"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+sentToContract(msg.sender,address(this),msg.value)
+
+IRs:
+TMP_0 = CONVERT this to address
+Emit sentToContract(msg.sender,TMP_0,msg.value)"];
+}

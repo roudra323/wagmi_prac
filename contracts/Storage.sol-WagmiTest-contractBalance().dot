@@ -1,0 +1,22 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->2;
+1[label="Node Type: RETURN 1
+
+EXPRESSION:
+address(this).balance
+
+IRs:
+TMP_2 = CONVERT this to address
+TMP_3(uint256) = SOLIDITY_CALL balance(address)(TMP_2)
+RETURN TMP_3"];
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+onlyOwner()
+
+IRs:
+MODIFIER_CALL, WagmiTest.onlyOwner()()"];
+2->1;
+}

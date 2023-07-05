@@ -1,0 +1,50 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->5;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(address(this).balance > amount,Low contract balance)
+
+IRs:
+TMP_5 = CONVERT this to address
+TMP_6(uint256) = SOLIDITY_CALL balance(address)(TMP_5)
+TMP_7(bool) = TMP_6 > amount
+TMP_8(None) = SOLIDITY_CALL require(bool,string)(TMP_7,Low contract balance)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool,string)(amount <= contractDonators[addr],Deposited lesser amounts)
+
+IRs:
+REF_1(uint256) -> contractDonators[addr]
+TMP_9(bool) = amount <= REF_1
+TMP_10(None) = SOLIDITY_CALL require(bool,string)(TMP_9,Deposited lesser amounts)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+addr.transfer(amount)
+
+IRs:
+Transfer dest:addr value:amount"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+sentFromContract(address(this),addr,amount)
+
+IRs:
+TMP_12 = CONVERT this to address
+Emit sentFromContract(TMP_12,addr,amount)"];
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+onlyOwner()
+
+IRs:
+MODIFIER_CALL, WagmiTest.onlyOwner()()"];
+5->1;
+}
